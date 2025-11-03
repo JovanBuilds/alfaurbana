@@ -1,0 +1,88 @@
+{
+  "brand": {
+    "name": "Alfa Urbana",
+    "tagline": "",
+    "fallbackBrandColor": "#B7410E"
+  },
+  "contact": {
+    "email": "alfaurbana@gmail.com",
+    "whatsapp_e164": "+526646703603"
+  },
+  "social": {
+    "facebook": "https://www.facebook.com/alfaurbanatijuana"
+  },
+  "services": [
+    "Estructuras metálicas y obra gris",
+    "Tablaroca y acabados interiores",
+    "Remodelaciones residenciales y comerciales",
+    "Impermeabilización y mantenimiento integral",
+    "Instalaciones ligeras (eléctrica, plomería básica)",
+    "Diseño y adecuación de espacios"
+  ],
+  "projects": [
+    {
+      "title": "Fachada en proceso",
+      "img": "./assets/photos/before1.jpeg",
+      "desc": "Inicio de obra y preparación estructural de fachada."
+    },
+    {
+      "title": "Fachada terminada",
+      "img": "./assets/photos/after1.jpeg",
+      "desc": "Finalización de acabados exteriores y pintura general."
+    },
+    {
+      "title": "Segunda fase de acabados",
+      "img": "./assets/photos/after2.jpeg",
+      "desc": "Instalación de molduras y retoques finales de la estructura."
+    },
+    {
+      "title": "Proyecto residencial destacado",
+      "img": "./assets/photos/housethemostimportantwork.jpeg",
+      "desc": "Desarrollo habitacional principal de Alfa Urbana."
+    },
+    {
+      "title": "Acabado interior general",
+      "img": "./assets/photos/interior1.jpeg",
+      "desc": "Plafones y muros en tablaroca con iluminación embutida."
+    },
+    {
+      "title": "Instalaciones interiores y acabados",
+      "img": "./assets/photos/interior2.jpeg",
+      "desc": "Tendido de cableado y aplicación de textura decorativa."
+    },
+    {
+      "title": "Área comercial en ejecución",
+      "img": "./assets/photos/interiorinterprise.jpeg",
+      "desc": "Adecuación de local para nueva apertura comercial."
+    },
+    {
+      "title": "Espacio corporativo finalizado",
+      "img": "./assets/photos/interiorinterprise2.jpeg",
+      "desc": "Oficinas terminadas con acabado industrial limpio."
+    },
+    {
+      "title": "Trabajo en altura con EPP",
+      "img": "./assets/photos/worker.jpeg",
+      "desc": "Personal especializado en instalación estructural segura."
+    },
+    {
+      "title": "Inspección final de obra",
+      "img": "./assets/photos/interior1.jpeg",
+      "desc": "Revisión técnica de detalles y cierre del proyecto."
+    }
+  ],
+  "testimonials": [
+    {
+      "name": "Propietario residencial",
+      "text": "El trato fue muy claro y la obra quedó tal cual lo prometido."
+    },
+    {
+      "name": "Administrador de local",
+      "text": "Resolvieron rápido sin cerrar el negocio. Muy profesionales."
+    },
+    {
+      "name": "Cliente comercial",
+      "text": "Excelente comunicación y cumplimiento de tiempos."
+    }
+  ]
+}
