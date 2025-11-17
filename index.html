@@ -3,755 +3,770 @@
 <head>
   <!-- =========================================================
        META BÁSICA
-       ---------------------------------------------------------
-       Landing "Alfa Urbana" — oscuro industrial con acento ladrillo
   ========================================================== -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <title>Alfa Urbana — Construcción y remodelación en Tijuana</title>
-  <meta name="description" content="Constructora enfocada en casas y remodelación, con servicios de obra civil, estructuras metálicas, tablaroca y acabados. Tijuana, B.C.">
-  <link rel="icon" href="./assets/favicon.png" type="image/png">
+  <meta name="description"
+        content="Alfa Urbana: construcción y remodelación residencial en Tijuana. Tablaroca, obra gris, acabados finos, impermeabilización y mantenimiento integral. Cotiza por WhatsApp.">
+
+  <link rel="icon" href="./assets/favicon.png" type="image/png" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Alfa Urbana — Constructora">
-  <meta property="og:description" content="Construcción y remodelación residencial en Tijuana, con capacidad comercial.">
+  <meta property="og:title" content="Alfa Urbana — Construcción y remodelación en Tijuana">
+  <meta property="og:description"
+        content="Construcción con carácter, acabados que perduran. Casas, ampliaciones y proyectos comerciales en Tijuana.">
+  <meta property="og:image" content="https://alfaurbana.netlify.app/assets/photos/housethemostimportantwork.jpeg">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="./assets/logoAU.png">
+  <meta property="og:url" content="https://alfaurbana.netlify.app">
 
-  <!-- SEO (evita duplicados si lo usas en producción) -->
-  <title>Alfa Urbana — Construcción y remodelación en Tijuana</title>
-  <meta name="description" content="Constructora enfocada en casas y remodelación, con servicios de obra civil, estructuras metálicas, tablaroca y acabados. Tijuana, B.C.">
-  <meta name="keywords" content="constructora, remodelación, Tijuana, obra civil, estructuras metálicas, tablaroca, acabados, impermeabilización, Alfa Urbana">
-  <meta name="author" content="Alfa Urbana, Tijuana, B.C.">
-  <link rel="canonical" href="https://alfaurbana.netlify.app">
-
-  <!-- Tailwind (CDN) -->
+  <!-- Tailwind CDN (solo para esta landing) -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: '#B7410E',
+            'brand-soft': '#F97316'
+          }
+        }
+      }
+    }
+  </script>
 
-  <!-- =========================================================
-       ESTILOS
-  ========================================================== -->
   <style>
-    :root { --brand: #B7410E; }
+    :root {
+      --brand: #B7410E;
+      --brand-soft: #F97316;
+      --bg-deep: #05070B;
+      --bg-mid: #0F1115;
+      --bg-card: #111827;
+    }
+
+    body {
+      background: radial-gradient(circle at top left, #111827 0, #020617 55%, #000 100%);
+      color: #E5E7EB;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+                   "Segoe UI", Roboto, Inter, Arial, sans-serif;
+    }
+
     .bg-industrial {
       background:
-        radial-gradient(60% 80% at 20% 0%, rgba(255,255,255,.05) 0%, rgba(0,0,0,0) 60%),
-        linear-gradient(180deg, #0F1115 0%, #151922 100%);
+        radial-gradient(140% 120% at -20% -20%, rgba(183,65,14,.25), transparent 50%),
+        radial-gradient(120% 120% at 120% 0, rgba(249,115,22,.12), transparent 55%),
+        linear-gradient(135deg, #020617, #020617 48%, #030712 100%);
     }
-    .card { background-color:#1F2937; border:1px solid rgba(255,255,255,.06); }
-    .hero-mark { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; pointer-events:none; opacity:.08; }
-    .hero-mark img { max-width:60%; filter: drop-shadow(0 10px 30px rgba(0,0,0,.5)); }
-    .masonry { column-gap: 1.5rem; }
-    @media (min-width: 0px)   {.masonry{ column-count: 1; }}
-    @media (min-width: 640px) {.masonry{ column-count: 2; }}
-    @media (min-width: 1024px){ .masonry{ column-count: 3; }}
-    .masonry-item { break-inside: avoid; margin: 0 0 1.5rem; display: block; }
-    @keyframes logoIn { from { opacity: 0; transform: translateY(6px) scale(.995);} to { opacity: 1; transform: translateY(0) scale(1);} }
-    .logo-anim { animation: logoIn .35s ease-out both; }
-    html { scroll-behavior: smooth; }
-    body { background:#0F1115; color:#E5E7EB; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Inter, Arial; }
-    a { outline-offset: 2px; }
-    /* — Servicios mejorados — */
-    .svc-card{position:relative;background:#1F2937;border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:18px;transition:.25s ease;isolation:isolate}
-    .svc-card:hover{transform:translateY(-2px);border-color:var(--brand);box-shadow:0 10px 30px rgba(0,0,0,.25)}
-    .svc-icon{display:grid;place-items:center;height:42px;width:42px;border-radius:10px;background:linear-gradient(180deg,rgba(183,65,14,.15),rgba(183,65,14,.05))}
-    .svc-title{font-weight:700;color:#fff;margin-top:10px}
-    .svc-desc{color:#9CA3AF;font-size:.92rem;margin-top:6px;line-height:1.3}
-    .svc-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
-    .svc-tag{font-size:.72rem;padding:4px 8px;border-radius:999px;background:#111827;border:1px solid rgba(255,255,255,.06);color:#C7CDD6}
-    .svc-cta{margin-top:12px;display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:10px;background:var(--brand);color:#fff;font-weight:600}
-    .svc-cta:hover{opacity:.9}
 
+    .nav-blur {
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .hero-badge {
+      letter-spacing: .18em;
+    }
+
+    /* Cards servicios */
+    .svc-card {
+      position: relative;
+      border-radius: 1rem;
+      background: linear-gradient(135deg, #020617, #020617);
+      border: 1px solid rgba(148,163,184,.65);
+      padding: 1.25rem 1.2rem 1.4rem;
+      box-shadow: 0 18px 40px rgba(0,0,0,.45);
+      overflow: hidden;
+      isolation: isolate;
+      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease, background .22s ease;
+    }
+    .svc-card::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      opacity: 0;
+      background:
+        radial-gradient(circle at 0 0, rgba(248,250,252,.09), transparent 65%),
+        radial-gradient(circle at 100% 100%, rgba(248,250,252,.08), transparent 75%);
+      transition: opacity .25s ease;
+      z-index: -1;
+    }
+    .svc-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(249,115,22,.9);
+      background: radial-gradient(circle at top left, rgba(180,83,9,.32), #020617 45%);
+      box-shadow: 0 22px 60px rgba(0,0,0,.7);
+    }
+    .svc-card:hover::before { opacity: 1; }
+
+    .svc-icon {
+      height: 42px;
+      width: 42px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: radial-gradient(circle at 30% 0, rgba(248,250,252,.45), transparent 55%);
+      color: #F97316;
+    }
+
+    .svc-tag {
+      font-size: .7rem;
+      padding: .28rem .55rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,.55);
+      color: #CBD5F5;
+      background: rgba(15,23,42,.8);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    /* Galería / Lightbox */
+    .gallery-grid img {
+      cursor: zoom-in;
+      transition: transform .25s ease, box-shadow .25s ease, opacity .2s ease;
+    }
+    .gallery-grid img:hover {
+      transform: translateY(-3px) scale(1.01);
+      box-shadow: 0 20px 40px rgba(0,0,0,.65);
+    }
+
+    .lb-backdrop {
+      background: radial-gradient(circle at top, rgba(15,23,42,.95), rgba(0,0,0,.98));
+    }
+    .lb-img {
+      max-height: min(80vh, 720px);
+    }
+
+    /* Scroll suave */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Sombra del header */
+    .shadow-soft {
+      box-shadow: 0 12px 45px rgba(0,0,0,.7);
+    }
   </style>
-
-  <!-- =========================================================
-       SCRIPT: Proximidad del logo
-  ========================================================== -->
-  <script>
-    (function () {
-      function init() {
-        const brand = document.getElementById('brand');
-        const img   = document.getElementById('brandImg');
-        if (!brand || !img) return;
-        const PROXIMITY_RADIUS = 96;
-        let ticking = false;
-
-        img.addEventListener('mouseenter', () => brand.classList.add('brand-hover'));
-        img.addEventListener('mouseleave', () => brand.classList.remove('brand-hover'));
-
-        function onMove(e) {
-          if (ticking) return;
-          ticking = true;
-          requestAnimationFrame(() => {
-            const rect = brand.getBoundingClientRect();
-            const cx = rect.left + rect.width / 2;
-            const cy = rect.top  + rect.height / 2;
-            const dx = e.clientX - cx;
-            const dy = e.clientY - cy;
-            const dist = Math.hypot(dx, dy);
-            if (dist <= PROXIMITY_RADIUS && !brand.classList.contains('brand-hover')) {
-              brand.classList.add('brand-near');
-            } else {
-              brand.classList.remove('brand-near');
-            }
-            ticking = false;
-          });
-        }
-        addEventListener('mousemove', onMove, { passive: true });
-        addEventListener('scroll', () => brand.classList.remove('brand-near'), { passive: true });
-      }
-      addEventListener('DOMContentLoaded', init);
-    })();
-    
-  </script>
-  <script>
-  (function(){
-    const track = document.getElementById('projTrack');
-    const prev  = document.getElementById('prevProj');
-    const next  = document.getElementById('nextProj');
-    const dotsC = document.getElementById('projDots');
-
-    const cards = [...track.children];
-    // Crear dots
-    cards.forEach((_,i)=>{
-      const d=document.createElement('span'); d.className='proj-dot'+(i===0?' active':'');
-      d.addEventListener('click',()=>track.scrollTo({left: i*track.children[0].offsetWidth + i*24, behavior:'smooth'}));
-      dotsC.appendChild(d);
-    });
-
-    function activeByScroll(){
-      const w = track.children[0].offsetWidth + 24;
-      const idx = Math.round(track.scrollLeft / w);
-      [...dotsC.children].forEach((el,i)=>el.classList.toggle('active', i===idx));
-    }
-    track.addEventListener('scroll', ()=>{ requestAnimationFrame(activeByScroll); });
-
-    // Flechas
-    function move(dir){
-      const w = track.children[0].offsetWidth + 24;
-      track.scrollBy({left: dir*w, behavior:'smooth'});
-    }
-    prev.addEventListener('click', ()=>move(-1));
-    next.addEventListener('click', ()=>move(1));
-
-    // Drag desktop
-    let isDown=false, startX=0, startLeft=0;
-    track.addEventListener('pointerdown', (e)=>{isDown=true; track.setPointerCapture(e.pointerId); startX=e.clientX; startLeft=track.scrollLeft;});
-    track.addEventListener('pointermove', (e)=>{ if(!isDown) return; track.scrollLeft = startLeft - (e.clientX - startX);});
-    track.addEventListener('pointerup',   ()=>{isDown=false});
-
-    // Desplazar rueda en horizontal
-    track.addEventListener('wheel',(e)=>{ if(Math.abs(e.deltaY)>Math.abs(e.deltaX)){ track.scrollBy({left:e.deltaY, behavior:'auto'}); e.preventDefault(); }},{passive:false});
-  })();
-</script>
-
-
-  <style>
-    /* — Carrusel de Proyectos — */
-    .proj-wrap{position:relative;margin-top:2rem}
-    .proj-track{
-      display:grid;grid-auto-flow:column;grid-auto-columns:min(88vw,520px);
-      gap:24px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;
-      padding:8px 8px 24px;scrollbar-width:none
-    }
-    .proj-track::-webkit-scrollbar{display:none}
-    .proj-card{position:relative;scroll-snap-align:center;background:#16202b;border:1px solid rgba(255,255,255,.08);border-radius:18px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,.25)}
-    .proj-media{aspect-ratio:4/5;width:100%;object-fit:cover;display:block}
-    .proj-grad{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.65),transparent 45%)}
-    .proj-info{position:absolute;left:16px;right:16px;bottom:16px;color:#fff}
-    .proj-title{font-weight:800;font-size:1.1rem}
-    .proj-sub{opacity:.85;font-size:.9rem}
-    .proj-cta{margin-top:.6rem;display:inline-flex;align-items:center;gap:8px;font-weight:700;padding:8px 12px;border-radius:10px;background:var(--brand);color:#fff}
-    .proj-edge{position:absolute;top:0;bottom:0;width:64px;pointer-events:none;background:linear-gradient(to right,#0F1115,transparent)}
-    .proj-edge.r{right:-2px;transform:scaleX(-1)}
-    .proj-nav{position:absolute;inset:0;display:flex;justify-content:space-between;align-items:center;pointer-events:none}
-    .proj-btn{pointer-events:auto;width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:#0f1115cc;border:1px solid rgba(255,255,255,.14);color:#fff}
-    .proj-dots{display:flex;gap:8px;justify-content:center;margin-top:14px}
-    .proj-dot{width:8px;height:8px;border-radius:999px;background:#26313d;transition:.2s}
-    .proj-dot.active{background:var(--brand)}
-  </style>
-
 </head>
+<body class="min-h-screen text-slate-100" id="top">
 
-<body>
-  <!-- =========================================================
-       HEADER
-  ========================================================== -->
-  <header class="sticky top-0 z-50 bg-[#0F1115]/80 backdrop-blur border-b border-white/10">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="h-20 flex items-center justify-between">
-        <a id="brand" href="#top" class="flex items-center gap-3">
-        <img id="brandImg" src="./assets/logoAU.png" alt="Alfa Urbana"
-          class="h-14 sm:h-16 lg:h-20 scale-x-[1.1] object-contain logo-anim">
-          <span class="sr-only">Ir al inicio</span>
-        </a>
+<!-- =========================================================
+     HEADER
+========================================================== -->
+<header class="sticky top-0 z-50 border-b border-white/10 bg-black/60 nav-blur shadow-soft">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="h-16 sm:h-20 flex items-center justify-between gap-4">
+      <a href="#top" class="flex items-center gap-3">
+        <img src="./assets/logoAU.png"
+             alt="Alfa Urbana"
+             class="h-10 sm:h-12 lg:h-14 object-contain">
+        <div class="hidden sm:flex flex-col leading-tight">
+          <span class="text-sm font-semibold tracking-[0.18em] uppercase text-orange-400">
+            Alfa Urbana
+          </span>
+          <span class="text-xs text-slate-400">
+            Construcción · Remodelación · Acabados
+          </span>
+        </div>
+      </a>
 
-        <nav class="hidden md:flex items-center gap-8 text-[#9CA3AF]">
-          <a href="#servicios" class="hover:text-white">Servicios</a>
-          <a href="#proyectos" class="hover:text-white">Proyectos</a>
-          <a href="#nosotros"  class="hover:text-white">Nosotros</a>
-
-          <!-- CAMBIO: este botón ahora abre WhatsApp directamente -->
-          <a id="ctaNavWhats"
-             href="https://wa.me/526646703603?text=Hola%20Alfa%20Urbana,%20me%20interesa%20una%20cotizaci%C3%B3n."
-             target="_blank" rel="noopener"
-             class="px-4 py-2 rounded-md bg-[var(--brand)] text-white hover:opacity-90">
-            Cotiza ahora
-          </a>
-        </nav>
-
-        <button id="btnMenu" class="md:hidden inline-flex h-10 w-10 items-center justify-center rounded-md border border-white/10 text-white" aria-label="Abrir menú">☰</button>
-      </div>
-    </div>
-
-    <div id="mobileMenu" class="md:hidden hidden border-t border-white/10">
-      <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 grid gap-2 text-[#D1D5DB]">
-        <a href="#servicios" class="py-2">Servicios</a>
-        <a href="#proyectos" class="py-2">Proyectos</a>
-        <a href="#nosotros"  class="py-2">Nosotros</a>
-        <!-- CAMBIO: el CTA móvil también abre WhatsApp -->
-        <a id="ctaNavWhatsMobile"
-           href="https://wa.me/526646703603?text=Hola%20Alfa%20Urbana,%20me%20interesa%20una%20cotizaci%C3%B3n."
+      <nav class="hidden md:flex items-center gap-8 text-sm text-slate-300">
+        <a href="#servicios" class="hover:text-white">Servicios</a>
+        <a href="#sobre" class="hover:text-white">Quiénes somos</a>
+        <a href="#proyectos" class="hover:text-white">Proyectos</a>
+        <a href="#galeria" class="hover:text-white">Galería</a>
+        <a href="#contacto" class="hover:text-white">Contacto</a>
+        <a href="https://wa.me/526646703603?text=Hola%20Alfa%20Urbana,%20me%20interesa%20una%20cotizaci%C3%B3n."
            target="_blank" rel="noopener"
-           class="py-2 text-white bg-[var(--brand)] rounded-md text-center">
-          Cotiza ahora
+           class="inline-flex items-center gap-2 rounded-md bg-brand px-4 py-2 text-xs font-semibold text-white shadow-lg hover:bg-orange-500">
+          Cotizar por WhatsApp
         </a>
       </nav>
+
+      <!-- Botón móvil -->
+      <button id="navToggle"
+              class="md:hidden inline-flex items-center justify-center h-9 w-9 rounded-md border border-slate-600/80 text-slate-200">
+        <span class="sr-only">Abrir navegación</span>
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
+             viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round"
+                d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
     </div>
-  </header>
+
+    <!-- Menú móvil -->
+    <nav id="navMobile"
+         class="md:hidden hidden border-t border-slate-800/80 pb-4 text-sm text-slate-200">
+      <div class="pt-3 flex flex-col gap-1">
+        <a href="#servicios" class="py-2">Servicios</a>
+        <a href="#sobre" class="py-2">Quiénes somos</a>
+        <a href="#proyectos" class="py-2">Proyectos</a>
+        <a href="#galeria" class="py-2">Galería</a>
+        <a href="#contacto" class="py-2">Contacto</a>
+        <a href="https://wa.me/526646703603?text=Hola%20Alfa%20Urbana,%20me%20interesa%20una%20cotizaci%C3%B3n."
+           target="_blank" rel="noopener"
+           class="mt-1 inline-flex items-center justify-center rounded-md bg-brand px-4 py-2 text-xs font-semibold text-white shadow-lg hover:bg-orange-500">
+          Cotizar por WhatsApp
+        </a>
+      </div>
+    </nav>
+  </div>
+</header>
 
 <!-- =========================================================
-     HERO — Equilibrio centrado: texto e imagen bien alineados
+     HERO
 ========================================================== -->
-<section id="hero" class="relative overflow-hidden bg-industrial">
-  <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 py-12 sm:py-14 relative">
-    <!-- Grid balanceado con centrado visual -->
-    <div class="grid lg:grid-cols-2 gap-6 lg:gap-8 items-center justify-items-center">
-
-      <!-- Columna izquierda: centrada dentro de su mitad -->
-      <div class="flex flex-col justify-center text-left w-full max-w-lg lg:pl-6">
-        <span class="inline-block text-sm tracking-widest font-semibold text-[var(--brand)] uppercase mb-3">
-          Constructora
+<section id="hero" class="bg-industrial">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20">
+    <div class="grid gap-10 lg:grid-cols-2 items-center">
+      <!-- Texto -->
+      <div class="flex flex-col gap-5 max-w-xl">
+        <span class="hero-badge inline-flex items-center gap-2 rounded-full border border-orange-500/40 bg-black/40 px-3 py-1 text-[0.7rem] font-semibold uppercase text-orange-300">
+          <span class="h-1.5 w-1.5 rounded-full bg-green-400"></span>
+          Constructora activa en Tijuana
         </span>
 
-        <!-- Wordmark -->
-        <h2 class="mb-5 text-3xl font-extrabold">
-          <span class="text-[var(--brand)]">Alfa</span>
-          <span class="pl-2 text-white">Urbana</span>
-        </h2>
-
-        <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight">
-          Construcción y remodelación residencial en Tijuana.
+        <h1 class="text-3xl sm:text-4xl lg:text-[2.8rem] font-extrabold leading-tight">
+          <span class="block text-orange-400">Construcción con carácter.</span>
+          <span class="block text-slate-50">Acabados que perduran en el tiempo.</span>
         </h1>
 
-        <p class="mt-4 text-[#9CA3AF] leading-relaxed max-w-md">
-          Enfoque principal en casas; también atendemos proyectos comerciales y de mantenimiento.
+        <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+          Alfa Urbana transforma hogares y espacios de trabajo con estructuras firmes,
+          tablaroca precisa e interiores que se sienten terminados hasta el último detalle.
+          Enfoque principal en casas, con capacidad para proyectos comerciales y de mantenimiento.
         </p>
 
-        <div class="mt-8 flex flex-wrap gap-4">
-          <a id="ctaWhats"
-             href="https://wa.me/526646703603?text=Hola%20Alfa%20Urbana,%20me%20interesa%20una%20cotizaci%C3%B3n."
+        <dl class="grid grid-cols-2 gap-4 text-xs text-slate-300 mt-2">
+          <div>
+            <dt class="font-semibold text-slate-100">Especialidad:</dt>
+            <dd>Remodelación residencial, ampliaciones, tablaroca y acabados finos.</dd>
+          </div>
+          <div>
+            <dt class="font-semibold text-slate-100">Zona de trabajo:</dt>
+            <dd>Tijuana y alrededores.</dd>
+          </div>
+        </dl>
+
+        <div class="flex flex-wrap gap-3 pt-3">
+          <a href="https://wa.me/526646703603?text=Hola%20Alfa%20Urbana,%20me%20interesa%20una%20cotizaci%C3%B3n."
              target="_blank" rel="noopener"
-             class="px-6 py-3 rounded-md bg-[var(--brand)] text-white font-semibold hover:opacity-90 shadow-lg">
+             class="inline-flex items-center gap-2 rounded-md bg-brand px-6 py-3 text-sm font-semibold text-white shadow-lg hover:bg-orange-500">
             Cotizar por WhatsApp
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none"
+                 viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.7">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
           </a>
           <a href="#proyectos"
-             class="px-6 py-3 rounded-md border border-white/10 text-[#9CA3AF] hover:border-[var(--brand)] hover:text-white">
-            Ver proyectos
+             class="inline-flex items-center gap-2 rounded-md border border-slate-600/80 px-5 py-3 text-sm font-medium text-slate-200 hover:border-orange-400 hover:text-white">
+            Ver trabajos realizados
           </a>
         </div>
-      </div>
 
-      <!-- Columna derecha: imagen centrada visualmente -->
-      <figure class="mt-10 lg:mt-0 w-full max-w-[26rem] justify-self-center">
-        <div class="rounded-xl overflow-hidden shadow-[0_10px_30px_rgba(0,0,0,.25)] ring-1 ring-white/10">
-          <img src="./assets/photos/housethemostimportantwork.jpeg"
-               alt="Proyecto residencial destacado"
-               class="w-full h-auto block object-cover">
-        </div>
-      </figure>
-
-    </div>
-  </div>
-</section>
-
-  <!-- =========================================================
-       SERVICIOS
-  ========================================================== -->
-<section id="servicios">
-  <div class="container mx-auto px-4">
-    <h2 class="text-3xl font-bold text-white text-left">Nuestros Servicios</h2>
-    <div id="svcGrid" class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-    <article class="svc-card">
-  <div class="svc-icon text-[var(--brand)]">
-    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5">
-      <path d="M3 21h18M6 21V8l6-3 6 3v13"/><path d="M6 12h12"/>
-    </svg>
-  </div>
-  <h3 class="svc-title">Estructuras metálicas y obra gris</h3>
-  <p class="svc-desc">Refuerzos, losas, muros y soldadura con control de plomo y verticalidad.</p>
-  <div class="svc-tags">
-    <span class="svc-tag">Soldadura</span>
-    <span class="svc-tag">Cimentación</span>
-    <span class="svc-tag">Refuerzo</span>
-  </div>
-  <a class="svc-cta" href="https://wa.me/5216646703603?text=Hola%20Alfa%20Urbana,%20quiero%20cotizar:%20Estructuras%20met%C3%A1licas%20y%20obra%20gris.">Cotizar este servicio →</a>
-    </article>
-    <article class="svc-card">
-  <div class="svc-icon text-[var(--brand)]">
-    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5">
-      <rect x="3" y="3" width="18" height="14" rx="2"/><path d="M7 8h10M7 12h6"/>
-    </svg>
-  </div>
-  <h3 class="svc-title">Tablaroca y acabados interiores</h3>
-  <p class="svc-desc">Muros, plafones y nichos; juntas invisibles y perímetros limpios.</p>
-  <div class="svc-tags">
-    <span class="svc-tag">Plafón</span>
-    <span class="svc-tag">Durlock</span>
-    <span class="svc-tag">Pasta fina</span>
-  </div>
-  <a class="svc-cta" href="https://wa.me/5216646703603?text=Hola%20Alfa%20Urbana,%20quiero%20cotizar:%20Tablaroca%20y%20acabados%20interiores.">Cotizar este servicio →</a>
-    </article>
-    <article class="svc-card">
-  <div class="svc-icon text-[var(--brand)]">
-    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5">
-      <path d="M3 11h18M5 11V4h4v7M15 20v-6h4v6"/><rect x="10" y="13" width="4" height="7"/>
-    </svg>
-  </div>
-  <h3 class="svc-title">Remodelaciones residenciales y comerciales</h3>
-  <p class="svc-desc">Demolición controlada, reconfiguración y entrega por etapas operables.</p>
-  <div class="svc-tags">
-    <span class="svc-tag">Demolición</span>
-    <span class="svc-tag">Layout</span>
-    <span class="svc-tag">Entrega por zonas</span>
-  </div>
-  <a class="svc-cta" href="https://wa.me/5216646703603?text=Hola%20Alfa%20Urbana,%20quiero%20cotizar:%20Remodelaciones%20residenciales%20y%20comerciales.">Cotizar este servicio →</a>
-    </article>
-    <article class="svc-card">
-  <div class="svc-icon text-[var(--brand)]">
-    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5">
-      <path d="M12 3l8 5v8l-8 5-8-5V8z"/><path d="M8 12l2 2 6-6"/>
-    </svg>
-  </div>
-  <h3 class="svc-title">Impermeabilización y mantenimiento integral</h3>
-  <p class="svc-desc">Membrana, acrílico y poliuretano; preparación y garantía por escrito.</p>
-  <div class="svc-tags">
-    <span class="svc-tag">Fugas</span>
-    <span class="svc-tag">Techo frío</span>
-    <span class="svc-tag">Garantía</span>
-  </div>
-  <a class="svc-cta" href="https://wa.me/5216646703603?text=Hola%20Alfa%20Urbana,%20quiero%20cotizar:%20Impermeabilizaci%C3%B3n%20y%20mantenimiento%20integral.">Cotizar este servicio →</a>
-    </article>
-    <article class="svc-card">
-  <div class="svc-icon text-[var(--brand)]">
-    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5">
-      <path d="M13 2L3 14h7v8l11-14h-7z"/>
-    </svg>
-  </div>
-  <h3 class="svc-title">Instalaciones ligeras (eléctrica y plomería básica)</h3>
-  <p class="svc-desc">Circuitos, luminarias, tubería y pruebas de presión/aislamiento.</p>
-  <div class="svc-tags">
-    <span class="svc-tag">Tomas</span>
-    <span class="svc-tag">Iluminación</span>
-    <span class="svc-tag">PVC/CPVC</span>
-  </div>
-  <a class="svc-cta" href="https://wa.me/5216646703603?text=Hola%20Alfa%20Urbana,%20quiero%20cotizar:%20Instalaciones%20ligeras%20(el%C3%A9ctrica%20y%20plomer%C3%ADa).">Cotizar este servicio →</a>
-    </article>
-    <article class="svc-card">
-  <div class="svc-icon text-[var(--brand)]">
-    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5">
-      <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
-    </svg>
-  </div>
-  <h3 class="svc-title">Diseño y adecuación de espacios</h3>
-  <p class="svc-desc">Optimización de flujo, materiales y cronograma realista.</p>
-  <div class="svc-tags">
-    <span class="svc-tag">Layout 2D</span>
-    <span class="svc-tag">Moodboard</span>
-    <span class="svc-tag">Crono</span>
-  </div>
-  <a class="svc-cta" href="https://wa.me/5216646703603?text=Hola%20Alfa%20Urbana,%20quiero%20cotizar:%20Dise%C3%B1o%20y%20adecuaci%C3%B3n%20de%20espacios.">Cotizar este servicio →</a>
-    </article>
-
-    </div>
-  </div>
-</section>
-
-
-<section id="proyectos" class="py-20 bg-[#0F1115]">
-  <div class="container mx-auto px-4">
-    <h2 class="text-4xl font-extrabold text-white">Proyectos recientes</h2>
-    <p class="text-slate-300 mt-2">Muestras reales de proceso y resultado.</p>
-
-    <div class="proj-wrap">
-      <div class="proj-edge l"></div><div class="proj-edge r"></div>
-
-      <!-- El track se llena por JS con tu arreglo "projects" -->
-      <div id="projTrack" class="proj-track"></div>
-
-      <!-- Flechas -->
-      <div class="proj-nav">
-        <button id="prevProj" class="proj-btn" aria-label="Anterior">‹</button>
-        <button id="nextProj" class="proj-btn" aria-label="Siguiente">›</button>
-      </div>
-    </div>
-
-    <!-- Dots -->
-    <div id="projDots" class="proj-dots"></div>
-  </div>
-</section>
-
-
-  <!-- =========================================================
-       NOSOTROS
-  ========================================================== -->
-  <section id="nosotros" class="py-16 sm:py-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid lg:grid-cols-2 gap-10 items-start">
-        <div>
-          <h2 class="text-3xl font-bold">Sobre Alfa Urbana</h2>
-          <p class="mt-3 text-[#9CA3AF] max-w-prose">
-            Somos una constructora de Tijuana enfocada en soluciones técnicas y limpias. Ejecutamos con precisión y mantenemos comunicación constante, priorizando obras residenciales sin excluir clientes comerciales.
-          </p>
-          <ul class="mt-6 space-y-3">
-            <li class="flex items-start gap-3"><span class="mt-1 h-2 w-2 rounded-full bg-[var(--brand)]"></span>Supervisión en sitio y control de calidad.</li>
-            <li class="flex items-start gap-3"><span class="mt-1 h-2 w-2 rounded-full bg-[var(--brand)]"></span>Estimaciones claras y avances puntuales.</li>
-            <li class="flex items-start gap-3"><span class="mt-1 h-2 w-2 rounded-full bg-[var(--brand)]"></span>Seguridad y EPP en todo momento.</li>
-          </ul>
-        </div>
-
-        <aside class="p-6 rounded-xl card">
-          <h3 class="font-semibold">Certificaciones y seguridad</h3>
-          <p class="mt-2 text-sm text-[#9CA3AF]">Protocolos de seguridad, EPP y control de accesos.</p>
-          <div class="mt-4 grid grid-cols-3 gap-3 text-center">
-            <div class="p-4 rounded-lg bg-[#151922]"><div class="text-2xl font-bold text-[var(--brand)]">+25</div><div class="text-xs text-[#9CA3AF]">Proyectos</div></div>
-            <div class="p-4 rounded-lg bg-[#151922]"><div class="text-2xl font-bold text-[var(--brand)]">10</div><div class="text-xs text-[#9CA3AF]">Años equipo</div></div>
-            <div class="p-4 rounded-lg bg-[#151922]"><div class="text-2xl font-bold text-[var(--brand)]">5/5</div><div class="text-xs text-[#9CA3AF]">Satisfacción</div></div>
-          </div>
-        </aside>
-      </div>
-    </div>
-  </section>
-
-  <!-- =========================================================
-       TESTIMONIOS — DESACTIVADO (comentado)
-       Para reactivar, descomenta este bloque y el render en JS.
-  ========================================================== -->
-  <!--
-  <section id="testimonios" class="py-16 sm:py-20 bg-[#151922]">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-2xl">
-        <h2 class="text-3xl font-bold">Lo que dicen nuestros clientes</h2>
-        <p class="mt-2 text-[#9CA3AF]">Confianza ganada en obra, no solo en papel.</p>
-      </div>
-      <div id="testGrid" class="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
-    </div>
-  </section>
-  -->
-
-  <!-- =========================================================
-       CONTACTO
-  ========================================================== -->
-  <section id="contacto" class="py-16 sm:py-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid lg:grid-cols-2 gap-10 items-start">
-        <div>
-          <h2 class="text-3xl font-bold">Cotiza tu obra</h2>
-          <p class="mt-2 text-[#9CA3AF]">Cuéntanos tu proyecto. Respondemos en el mismo día hábil.</p>
-
-          <form class="mt-6 grid gap-4" onsubmit="event.preventDefault(); window.open(whatsLink() + '&text=' + encodeURIComponent(document.getElementById('msg').value),'_blank')">
-            <input id="name" type="text" placeholder="Nombre" class="px-4 py-3 rounded-lg bg-[#1F2937] border border-white/10 text-white placeholder-[#9CA3AF] focus:outline-none focus:ring-2 focus:ring-[var(--brand)]" />
-            <input id="mail" type="email" placeholder="Correo (opcional)" class="px-4 py-3 rounded-lg bg-[#1F2937] border border-white/10 text-white placeholder-[#9CA3AF] focus:outline-none focus:ring-2 focus:ring-[var(--brand)]" />
-            <textarea id="msg" rows="4" placeholder="Describe tu proyecto..." class="px-4 py-3 rounded-lg bg-[#1F2937] border border-white/10 text-white placeholder-[#9CA3AF] focus:outline-none focus:ring-2 focus:ring-[var(--brand)]"></textarea>
-
-            <div class="flex gap-3">
-              <button type="submit" class="px-6 py-3 rounded-md bg-[var(--brand)] text-white font-semibold hover:opacity-90">Enviar por WhatsApp</button>
-              <a id="ctaEmail" class="px-6 py-3 rounded-md border border-white/10 text-[#9CA3AF] hover:border-[var(--brand)] hover:text-white">Enviar por correo</a>
-            </div>
-          </form>
-
-          <p class="mt-3 text-sm text-[#9CA3AF]">Cobertura: Tijuana y zona metropolitana.</p>
-        </div>
-
-        <aside class="p-6 rounded-xl card">
-          <h3 class="font-semibold">Contacto</h3>
-          <div class="mt-2 text-sm text-[#9CA3AF] grid grid-cols-1 gap-2">
-            <div><span class="text-white">WhatsApp:</span> +52 664 670 3603</div>
-            <div><span class="text-white">Correo:</span> alfaurbana@gmail.com</div>
-            <div><span class="text-white">Facebook:</span> <a id="fbLink" href="#" class="underline" target="_blank" rel="noopener">/alfaurbanatijuana</a></div>
-          </div>
-        </aside>
-      </div>
-    </div>
-  </section>
-
-<!-- =========================================================
-     FOOTER — Con crédito a Jovan.Builds
-========================================================== -->
-<footer class="border-t border-white/10 py-10 bg-[#151922]">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-
-      <!-- Logo y derechos -->
-      <div class="flex items-center gap-3">
-        <img src="./assets/logoAU.png" alt="Alfa Urbana" class="h-14 w-auto">
-        <p class="text-sm text-[#9CA3AF]">
-          © <span id="y"></span> Alfa Urbana · Construcción en Baja California<br>
-          <span class="text-xs text-[#6B7280]">
-            Desarrollado por <a href="https://linkedin.com/in/jovanbuilds" target="_blank" rel="noopener" class="hover:text-[var(--brand)] transition-colors">Jovan.Builds</a>
-          </span>
+        <p class="pt-2 text-xs text-slate-400">
+          Atención por WhatsApp, visitas a domicilio y presupuesto sin costo.
         </p>
       </div>
 
-      <!-- Enlaces -->
-      <div class="flex items-center gap-4 text-sm">
-        <a href="#servicios" class="hover:text-white">Servicios</a>
-        <a href="#proyectos" class="hover:text-white">Proyectos</a>
-        <a id="fbLink2" href="https://facebook.com/alfaurbanatijuana" target="_blank" rel="noopener" class="hover:text-white">Facebook</a>
+      <!-- Imagen -->
+      <div class="relative flex justify-center lg:justify-end">
+        <div class="relative w-full max-w-md">
+          <div class="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-orange-600/30 via-amber-500/20 to-transparent blur-2xl opacity-60"></div>
+          <figure class="relative rounded-3xl overflow-hidden border border-slate-600/50 shadow-[0_20px_60px_rgba(0,0,0,0.7)]">
+            <img src="./assets/photos/housethemostimportantwork.jpeg"
+                 alt="Proyecto residencial Alfa Urbana"
+                 class="w-full h-full object-cover">
+          </figure>
+
+          <!-- Ficha mini -->
+          <div class="absolute -bottom-4 left-4 right-auto max-w-xs rounded-2xl border border-slate-700/80 bg-black/70 px-3 py-2 text-xs text-slate-200 shadow-xl backdrop-blur">
+            <div class="flex items-center justify-between gap-3">
+              <div>
+                <p class="font-semibold text-[0.7rem] tracking-[0.18em] uppercase text-orange-300">
+                  Residencial
+                </p>
+                <p class="text-[0.8rem] text-slate-100">
+                  Sala-comedor renovada con tablaroca, iluminación y textura fina.
+                </p>
+              </div>
+              <span class="inline-flex items-center justify-center rounded-full bg-emerald-500/15 px-2 py-1 text-[0.65rem] text-emerald-200 border border-emerald-500/40">
+                Entregado
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     QUIÉNES SOMOS
+========================================================== -->
+<section id="sobre" class="border-y border-white/5 bg-black/60">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14">
+    <div class="grid gap-10 md:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] items-center">
+      <div>
+        <h2 class="text-2xl sm:text-3xl font-bold text-slate-50">
+          Construimos con oficio, detalle y palabra.
+        </h2>
+        <p class="mt-4 text-sm sm:text-base text-slate-300 leading-relaxed">
+          Alfa Urbana nace de la mezcla entre experiencia en obra, conocimiento técnico
+          y una forma muy simple de trabajar: llegar puntuales, explicar con claridad,
+          ejecutar con precisión y entregar la casa limpia y terminada.
+        </p>
+        <p class="mt-3 text-sm text-slate-400">
+          Cada proyecto se documenta con fotografías de proceso y final para que el cliente
+          vea claramente qué se hizo y cómo se dejó.
+        </p>
+
+        <dl class="mt-6 grid gap-4 text-sm text-slate-200 sm:grid-cols-3">
+          <div>
+            <dt class="font-semibold text-orange-300 text-xs uppercase tracking-[0.16em]">Enfoque</dt>
+            <dd>Casas, departamentos y ampliaciones.</dd>
+          </div>
+          <div>
+            <dt class="font-semibold text-orange-300 text-xs uppercase tracking-[0.16em]">Obra</dt>
+            <dd>Tablaroca, estructura, acabados, impermeabilización.</dd>
+          </div>
+          <div>
+            <dt class="font-semibold text-orange-300 text-xs uppercase tracking-[0.16em]">Atención</dt>
+            <dd>Visita de valoración y presupuesto sin costo.</dd>
+          </div>
+        </dl>
+      </div>
+
+      <div class="space-y-3 text-sm text-slate-300">
+        <div class="rounded-2xl border border-slate-700/80 bg-slate-950/70 px-4 py-3 shadow-lg">
+          <p class="text-xs uppercase tracking-[0.18em] text-orange-300 mb-1">Compromiso</p>
+          <p>Respetar tiempos y explicar las alternativas de material según el presupuesto.</p>
+        </div>
+        <div class="rounded-2xl border border-slate-700/80 bg-slate-950/70 px-4 py-3 shadow-lg">
+          <p class="text-xs uppercase tracking-[0.18em] text-orange-300 mb-1">Seguridad</p>
+          <p>Cuidamos muros, estructura, instalaciones y limpieza del área de trabajo.</p>
+        </div>
+        <div class="rounded-2xl border border-slate-700/80 bg-slate-950/70 px-4 py-3 shadow-lg">
+          <p class="text-xs uppercase tracking-[0.18em] text-orange-300 mb-1">Comunicación</p>
+          <p>Siempre hay un responsable con el que puedes hablar directamente por WhatsApp o llamada.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     SERVICIOS
+========================================================== -->
+<section id="servicios" class="bg-gradient-to-b from-black via-slate-950 to-black">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+    <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-[0.18em] text-orange-400">
+          Servicios
+        </p>
+        <h2 class="mt-2 text-2xl sm:text-3xl font-bold text-slate-50">
+          Lo que Alfa Urbana puede hacer por tu espacio
+        </h2>
+      </div>
+      <p class="max-w-md text-xs sm:text-sm text-slate-400">
+        Trabajamos por etapas claras: demolición, estructura, instalaciones, tablaroca,
+        acabados y limpieza final. Siempre con fotografía de avance.
+      </p>
+    </div>
+
+    <div class="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+      <!-- Servicio 1 -->
+      <article class="svc-card">
+        <div class="svc-icon mb-3">
+          <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor">
+            <path d="M3 21h18M6 21V9l6-3 6 3v12" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M6 12h12" stroke-width="1.3" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3 class="text-sm font-semibold text-slate-50">Estructuras metálicas y obra gris</h3>
+        <p class="mt-2 text-xs text-slate-300">
+          Refuerzos, losas, muros, perfiles metálicos y soldadura con control de plomo y nivel.
+        </p>
+        <div class="mt-3 flex flex-wrap gap-2">
+          <span class="svc-tag">Refuerzos</span>
+          <span class="svc-tag">Ampliaciones</span>
+          <span class="svc-tag">Locales</span>
+        </div>
+      </article>
+
+      <!-- Servicio 2 -->
+      <article class="svc-card">
+        <div class="svc-icon mb-3">
+          <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor">
+            <rect x="3" y="4" width="18" height="16" rx="2" stroke-width="1.6"/>
+            <path d="M9 4v16M3 10h6M9 14h12" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3 class="text-sm font-semibold text-slate-50">Tablaroca y acabados interiores</h3>
+        <p class="mt-2 text-xs text-slate-300">
+          Muros divisorios, plafones y detalles decorativos, listos para pintura o textura.
+        </p>
+        <div class="mt-3 flex flex-wrap gap-2">
+          <span class="svc-tag">Plafones</span>
+          <span class="svc-tag">Muros ligeros</span>
+          <span class="svc-tag">Diseño interior</span>
+        </div>
+      </article>
+
+      <!-- Servicio 3 -->
+      <article class="svc-card">
+        <div class="svc-icon mb-3">
+          <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor">
+            <path d="M4 7h16M4 12h10M4 17h7" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M18 17l2 2 3-4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3 class="text-sm font-semibold text-slate-50">Remodelación integral de casas</h3>
+        <p class="mt-2 text-xs text-slate-300">
+          Demolición controlada, redistribución de espacios, ampliaciones y actualización completa.
+        </p>
+        <div class="mt-3 flex flex-wrap gap-2">
+          <span class="svc-tag">Cocinas</span>
+          <span class="svc-tag">Baños</span>
+          <span class="svc-tag">Salas</span>
+        </div>
+      </article>
+
+      <!-- Servicio 4 -->
+      <article class="svc-card">
+        <div class="svc-icon mb-3">
+          <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor">
+            <path d="M4 20h16" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M7 20V8l5-4 5 4v12" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M9 13h6" stroke-width="1.4" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3 class="text-sm font-semibold text-slate-50">Pintura, texturas y acabado fino</h3>
+        <p class="mt-2 text-xs text-slate-300">
+          Afinado de muros, aplicación de textura y pintura de alto rendimiento en interior y exterior.
+        </p>
+        <div class="mt-3 flex flex-wrap gap-2">
+          <span class="svc-tag">Texturas</span>
+          <span class="svc-tag">Fachada</span>
+          <span class="svc-tag">Interior</span>
+        </div>
+      </article>
+
+      <!-- Servicio 5 -->
+      <article class="svc-card">
+        <div class="svc-icon mb-3">
+          <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor">
+            <path d="M5 19h14" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M7 19V9l5-4 5 4v10" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M9 12h6" stroke-width="1.3" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <h3 class="text-sm font-semibold text-slate-50">Impermeabilización y mantenimiento</h3>
+        <p class="mt-2 text-xs text-slate-300">
+          Impermeabilizante acrílico, membrana o poliuretano, según el caso. Preparación previa y garantía por escrito.
+        </p>
+        <div class="mt-3 flex flex-wrap gap-2">
+          <span class="svc-tag">Azoteas</span>
+          <span class="svc-tag">Filtraciones</span>
+          <span class="svc-tag">Mantenimiento</span>
+        </div>
+      </article>
+
+      <!-- Servicio 6 -->
+      <article class="svc-card">
+        <div class="svc-icon mb-3">
+          <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor">
+            <path d="M4 6h16M4 12h16M4 18h10" stroke-width="1.6" stroke-linecap="round"/>
+            <circle cx="18.5" cy="18.5" r="1.2" stroke-width="1.2"/>
+          </svg>
+        </div>
+        <h3 class="text-sm font-semibold text-slate-50">Proyectos comerciales y oficinas</h3>
+        <p class="mt-2 text-xs text-slate-300">
+          Adecuación de locales, oficinas y espacios corporativos con acabados limpios y funcionales.
+        </p>
+        <div class="mt-3 flex flex-wrap gap-2">
+          <span class="svc-tag">Locales</span>
+          <span class="svc-tag">Oficinas</span>
+          <span class="svc-tag">Interiorismo</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     PROYECTOS DESTACADOS
+========================================================== -->
+<section id="proyectos" class="bg-black">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+    <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-[0.18em] text-orange-400">
+          Proyectos
+        </p>
+        <h2 class="mt-2 text-2xl sm:text-3xl font-bold text-slate-50">
+          Algunos trabajos realizados
+        </h2>
+      </div>
+      <p class="max-w-md text-xs sm:text-sm text-slate-400">
+        Cada proyecto se documenta con fotografías de proceso y resultado para que el cliente tenga claro
+        qué se hizo y cómo se entregó.
+      </p>
+    </div>
+
+    <div class="mt-8 grid gap-6 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.9fr)] items-start">
+      <!-- Antes / Después principal -->
+      <div class="space-y-4">
+        <h3 class="text-sm font-semibold text-slate-100 tracking-[0.16em] uppercase">
+          Antes y después — Área residencial
+        </h3>
+        <div class="grid gap-3 sm:grid-cols-2">
+          <figure class="relative overflow-hidden rounded-2xl border border-slate-700/80 bg-slate-900/70">
+            <img src="./assets/photos/before1.jpeg"
+                 alt="Antes de la remodelación"
+                 class="h-full w-full object-cover cursor-zoom-in"
+                 data-lightbox>
+            <figcaption class="absolute left-3 top-3 rounded-full bg-black/70 px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-slate-100">
+              Antes
+            </figcaption>
+          </figure>
+          <figure class="relative overflow-hidden rounded-2xl border border-emerald-500/60 bg-slate-900/70">
+            <img src="./assets/photos/after1.jpeg"
+                 alt="Después de la remodelación"
+                 class="h-full w-full object-cover cursor-zoom-in"
+                 data-lightbox>
+            <figcaption class="absolute left-3 top-3 rounded-full bg-emerald-500/80 px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-slate-950">
+              Después
+            </figcaption>
+          </figure>
+        </div>
+        <p class="text-xs sm:text-sm text-slate-300">
+          Regularización de muros, nueva distribución, instalación eléctrica ordenada y acabado fino
+          en paredes y plafón. Se entregó listo para amueblar.
+        </p>
+      </div>
+
+      <!-- Tarjetas adicionales -->
+      <div class="space-y-4">
+        <article class="overflow-hidden rounded-2xl border border-slate-700/80 bg-slate-950/80 shadow-lg">
+          <div class="relative h-52 overflow-hidden">
+            <img src="./assets/photos/interior1.jpeg"
+                 alt="Interiores en proceso"
+                 class="h-full w-full object-cover cursor-zoom-in"
+                 data-lightbox>
+            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent px-4 pb-3 pt-8 text-xs">
+              <p class="font-semibold text-slate-100">Interiores en proceso</p>
+              <p class="text-[0.7rem] text-slate-300">
+                Tablaroca, nivelación y preparación de superficie para textura y pintura.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <article class="overflow-hidden rounded-2xl border border-slate-700/80 bg-slate-950/80 shadow-lg">
+          <div class="relative h-52 overflow-hidden">
+            <img src="./assets/photos/interiorinterprise2.jpeg"
+                 alt="Área corporativa terminada"
+                 class="h-full w-full object-cover cursor-zoom-in"
+                 data-lightbox>
+            <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent px-4 pb-3 pt-8 text-xs">
+              <p class="font-semibold text-slate-100">Área corporativa terminada</p>
+              <p class="text-[0.7rem] text-slate-300">
+                Oficinas con acabado industrial limpio, iluminación y distribución ordenada.
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     GALERÍA
+========================================================== -->
+<section id="galeria" class="bg-gradient-to-b from-black via-slate-950 to-black border-y border-slate-900/80">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+    <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-[0.18em] text-orange-400">
+          Galería
+        </p>
+        <h2 class="mt-2 text-2xl sm:text-3xl font-bold text-slate-50">
+          Detalles de obra y acabados
+        </h2>
+      </div>
+      <p class="max-w-md text-xs sm:text-sm text-slate-400">
+        Una muestra de interiores, estructura, acabados y áreas comerciales donde Alfa Urbana ha trabajado.
+      </p>
+    </div>
+
+    <div class="mt-8 gallery-grid grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
+      <img src="./assets/photos/after2.jpeg" alt="Acabado interior" class="rounded-2xl border border-slate-700/80 object-cover" data-lightbox>
+      <img src="./assets/photos/interior2.jpeg" alt="Instalaciones interiores" class="rounded-2xl border border-slate-700/80 object-cover" data-lightbox>
+      <img src="./assets/photos/interiorinterprise.jpeg" alt="Área comercial en proceso" class="rounded-2xl border border-slate-700/80 object-cover" data-lightbox>
+      <img src="./assets/photos/worker.jpeg" alt="Trabajo de detalle" class="rounded-2xl border border-slate-700/80 object-cover" data-lightbox>
+      <img src="./assets/photos/before1.jpeg" alt="Espacio antes de la remodelación" class="rounded-2xl border border-slate-700/80 object-cover" data-lightbox>
+      <img src="./assets/photos/after1.jpeg" alt="Espacio después de la remodelación" class="rounded-2xl border border-slate-700/80 object-cover" data-lightbox>
+    </div>
+
+    <p class="mt-4 text-[0.7rem] text-slate-500">
+      Las fotografías son representativas del trabajo realizado; se muestran sin filtros exagerados para reflejar el resultado real.
+    </p>
+  </div>
+</section>
+
+<!-- =========================================================
+     CONTACTO
+========================================================== -->
+<section id="contacto" class="bg-black">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+    <div class="grid gap-10 md:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] items-start">
+      <div>
+        <p class="text-xs font-semibold uppercase tracking-[0.18em] text-orange-400">
+          Contacto
+        </p>
+        <h2 class="mt-2 text-2xl sm:text-3xl font-bold text-slate-50">
+          Agenda tu cotización sin costo
+        </h2>
+        <p class="mt-3 text-sm text-slate-300 max-w-xl">
+          Cuéntanos qué necesitas: ampliación, remodelación, acabado, impermeabilización o un proyecto completo.
+          Podemos agendar una visita para valorar el trabajo y darte un presupuesto claro.
+        </p>
+
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="https://wa.me/526646703603?text=Hola%20Alfa%20Urbana,%20me%20interesa%20una%20cotizaci%C3%B3n."
+             target="_blank" rel="noopener"
+             class="inline-flex items-center gap-2 rounded-md bg-brand px-6 py-3 text-sm font-semibold text-white shadow-lg hover:bg-orange-500">
+            Escribir por WhatsApp
+          </a>
+          <a href="mailto:alfaurbana@gmail.com"
+             class="inline-flex items-center gap-2 rounded-md border border-slate-600/80 px-5 py-3 text-sm font-medium text-slate-200 hover:border-orange-400 hover:text-white">
+            Enviar correo
+          </a>
+        </div>
+
+        <dl class="mt-7 grid gap-4 text-xs sm:text-sm text-slate-300 sm:grid-cols-2 max-w-xl">
+          <div>
+            <dt class="font-semibold text-slate-100">WhatsApp</dt>
+            <dd class="mt-1">+52 664 670 3603</dd>
+          </div>
+          <div>
+            <dt class="font-semibold text-slate-100">Correo</dt>
+            <dd class="mt-1">alfaurbana@gmail.com</dd>
+          </div>
+          <div>
+            <dt class="font-semibold text-slate-100">Ubicación</dt>
+            <dd class="mt-1">Tijuana, Baja California.</dd>
+          </div>
+          <div>
+            <dt class="font-semibold text-slate-100">Horario de atención</dt>
+            <dd class="mt-1">Lunes a sábado · Horarios flexibles según obra.</dd>
+          </div>
+        </dl>
+      </div>
+
+      <div class="rounded-2xl border border-slate-700/80 bg-slate-950/80 p-5 text-xs sm:text-sm text-slate-300 shadow-xl">
+        <p class="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-orange-300 mb-2">
+          ¿Cómo trabajamos?
+        </p>
+        <ol class="space-y-3 list-decimal list-inside">
+          <li>Nos mandas fotos o video del área y una explicación breve.</li>
+          <li>Agendamos visita para medir, revisar y proponerte opciones.</li>
+          <li>Te entregamos presupuesto por escrito, por etapa o completo.</li>
+          <li>Si aceptas, fijamos calendario de trabajo y forma de pago.</li>
+        </ol>
+        <p class="mt-4 text-[0.7rem] text-slate-500">
+          Los tiempos y precios dependen del alcance del proyecto. Siempre puedes preguntar sin compromiso.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================================================
+     FOOTER
+========================================================== -->
+<footer class="border-t border-slate-800 bg-black/90">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col sm:flex-row items-center justify-between gap-2 text-[0.7rem] text-slate-500">
+    <p>© <span id="yearSpan"></span> Alfa Urbana. Todos los derechos reservados.</p>
+    <p>Construcción y remodelación en Tijuana, B.C.</p>
   </div>
 </footer>
 
-  <!-- =========================================================
-       LIGHTBOX
-  ========================================================== -->
-  <div id="lbRoot" class="fixed inset-0 z-50 hidden bg-black/90">
-    <button id="lbClose" class="absolute top-4 right-4 h-10 w-10 rounded-full bg-white/10 hover:bg-white/20 text-white text-xl leading-none" aria-label="Cerrar">✕</button>
-    <button id="lbPrev"  class="absolute left-3 top-1/2 -translate-y-1/2 h-10 w-10 rounded-full bg-white/10 hover:bg-white/20 text-white text-xl" aria-label="Anterior">‹</button>
-    <button id="lbNext"  class="absolute right-3 top-1/2 -translate-y-1/2 h-10 w-10 rounded-full bg-white/10 hover:bg-white/20 text-white text-xl" aria-label="Siguiente">›</button>
-    <div class="h-full w-full flex items-center justify-center p-4">
-      <figure class="max-w-5xl w-full">
-        <img id="lbImg" src="" alt="" class="w-full h-auto rounded-lg shadow-[0_20px_60px_rgba(0,0,0,.6)]" />
-        <figcaption id="lbCap" class="mt-4 text-center text-[#D1D5DB] text-sm"></figcaption>
-      </figure>
-    </div>
-  </div>
+<!-- =========================================================
+     LIGHTBOX
+========================================================== -->
+<div id="lightbox"
+     class="fixed inset-0 z-[60] hidden items-center justify-center lb-backdrop px-4 py-8">
+  <button id="lbClose"
+          class="absolute right-4 top-4 rounded-full border border-slate-600/80 bg-black/70 px-3 py-1.5 text-xs text-slate-100 hover:border-orange-400">
+    Cerrar
+  </button>
+  <img id="lbImg" src="" alt="Vista ampliada" class="lb-img rounded-2xl border border-slate-700/80 shadow-[0_30px_80px_rgba(0,0,0,0.9)] object-contain">
+</div>
 
-  <!-- =========================================================
-       SCRIPT: datos + render
-  ========================================================== -->
-  <script>
-    // Contacto básico
-    const CONTACT = {
-      email: "alfaurbana@gmail.com",
-      whatsapp_e164: "+526646703603",
-      facebook: "https://www.facebook.com/alfaurbanatijuana"
-    };
-    const WA = "https://wa.me/" + CONTACT.whatsapp_e164.replace(/[^+0-9]/g,'') + "?text=" + encodeURIComponent("Hola Alfa Urbana, me interesa una cotización.");
-    function whatsLink(){ return WA; }
+<!-- =========================================================
+     BOTÓN FLOTANTE WHATSAPP
+========================================================== -->
+<a href="https://wa.me/526646703603?text=Hola%20Alfa%20Urbana,%20me%20interesa%20una%20cotizaci%C3%B3n."
+   target="_blank" rel="noopener"
+   class="fixed bottom-4 right-4 z-40 inline-flex items-center justify-center rounded-full bg-emerald-500 px-4 py-3 text-xs font-semibold text-slate-900 shadow-xl hover:bg-emerald-400">
+  WhatsApp
+</a>
 
-    // Contenido
-    /*const services = [
-      "Estructuras metálicas y obra gris",
-      "Tablaroca y acabados interiores", 
-      "Remodelaciones residenciales y comerciales",
-      "Impermeabilización y mantenimiento integral",
-      "Instalaciones ligeras (eléctrica y plomería básica)",
-      "Diseño y adecuación de espacios"
-    ];*/
-    const projects = [
-      { title: "Fachada en proceso",            img: "./assets/photos/before1.jpeg",                 desc: "Inicio de obra y preparación estructural de fachada." },
-      { title: "Fachada terminada",              img: "./assets/photos/after1.jpeg",                  desc: "Finalización de acabados exteriores y pintura general." },
-      { title: "Segunda fase de acabados",       img: "./assets/photos/after2.jpeg",                  desc: "Instalación de molduras y retoques finales de la estructura." },
-      { title: "Proyecto residencial destacado", img: "./assets/photos/housethemostimportantwork.jpeg",desc: "Desarrollo habitacional principal de Alfa Urbana." },
-      { title: "Acabado interior",               img: "./assets/photos/interior1.jpeg",               desc: "Plafones y muros en tablaroca con iluminación embutida." },
-      { title: "Instalaciones y acabados",       img: "./assets/photos/interior2.jpeg",               desc: "Tendido de cableado y aplicación de textura decorativa." },
-      { title: "Área comercial en ejecución",    img: "./assets/photos/interiorinterprise.jpeg",      desc: "Adecuación de local para nueva apertura comercial." },
-      { title: "Espacio corporativo finalizado", img: "./assets/photos/interiorinterprise2.jpeg",     desc: "Oficinas terminadas con acabado industrial limpio." },
-      { title: "Trabajo en altura con EPP",      img: "./assets/photos/worker.jpeg",                  desc: "Instalación estructural segura con equipo de protección." }
-    ];
-
-    // ===== Render =====
-    // Servicios
-    /*const svcGrid = document.getElementById("svcGrid");
-    services.forEach(s => {
-      const el = document.createElement("div");
-      el.className = "p-6 rounded-xl card";
-      el.innerHTML = `<h3 class="font-semibold text-white">${s}</h3>`;
-      svcGrid.appendChild(el);
-    });*/
-
-
-    // Proyectos (legacy masonry — guarded)
-const projGrid = document.getElementById("projGrid");
-if (projGrid) {
-
-    
-    projects.forEach((p, i) => {
-      const wrap = document.createElement("div");
-      wrap.className = "masonry-item";
-      wrap.innerHTML = `
-        <button data-idx="${i}" class="group relative block w-full rounded-xl overflow-hidden ring-1 ring-white/10 focus:outline-none focus:ring-2 focus:ring-[var(--brand)]">
-          <img loading="lazy" src="${p.img}" alt="${p.title}" class="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-[1.03]">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
-          <div class="absolute bottom-0 left-0 right-0 p-4">
-            <h3 class="text-white font-semibold drop-shadow">${p.title}</h3>
-            <p class="text-[#D1D5DB] text-sm">${p.desc}</p>
-          </div>
-        </button>
-      `;
-      projGrid.appendChild(wrap);
-    });
-
-    
-}
-// TESTIMONIOS (desactivado)
-    // const testimonials = [
-    //   { name: "Propietario residencial", text: "El trato fue muy claro y la obra quedó tal cual lo prometido." },
-    //   { name: "Administrador de local",  text: "Resolvieron rápido sin cerrar el negocio. Muy profesionales." },
-    //   { name: "Cliente comercial",       text: "Excelente comunicación y cumplimiento de tiempos." }
-    // ];
-    // const testGrid = document.getElementById("testGrid");
-    // testimonials.forEach(t => {
-    //   const card = document.createElement("div");
-    //   card.className = "p-6 rounded-xl card";
-    //   card.innerHTML = `<p class="text-white">“${t.text}”</p><div class="mt-3 text-sm text-[#9CA3AF]">— ${t.name}</div>`;
-    //   testGrid.appendChild(card);
-    // });
-
-    // Enlaces
-    const waBtn = document.getElementById("ctaWhats");            if (waBtn) waBtn.href = WA;
-    const waNav = document.getElementById("ctaNavWhats");         if (waNav) waNav.href = WA;
-    const waNavM= document.getElementById("ctaNavWhatsMobile");   if (waNavM) waNavM.href = WA;
-
-    const emailLink = document.getElementById("ctaEmail");        if (emailLink) emailLink.href = "mailto:"+CONTACT.email+"?subject=Cotización";
-    const fb1 = document.getElementById("fbLink");                if (fb1) fb1.href = CONTACT.facebook;
-    const fb2 = document.getElementById("fbLink2");               if (fb2) fb2.href = CONTACT.facebook;
-
-    // Año footer
-    const y = document.getElementById("y"); if (y) y.textContent = new Date().getFullYear();
-
-    // Lightbox
-    const lbRoot  = document.getElementById("lbRoot");
-    const lbImg   = document.getElementById("lbImg");
-    const lbCap   = document.getElementById("lbCap");
-    const lbClose = document.getElementById("lbClose");
-    const lbPrev  = document.getElementById("lbPrev");
-    const lbNext  = document.getElementById("lbNext");
-    let idx = 0;
-
-    function openLB(i){
-      idx = i;
-      const p = projects[idx];
-      if(!p) return;
-      [p.img, projects[(idx+1)%projects.length]?.img, projects[(idx-1+projects.length)%projects.length]?.img]
-        .filter(Boolean).forEach(src => { const im = new Image(); im.src = src; });
-      lbImg.src = p.img; lbImg.alt = p.title; lbCap.textContent = [p.title, p.desc].filter(Boolean).join(" — ");
-      lbRoot.classList.remove("hidden"); document.body.style.overflow = "hidden";
-    }
-    function closeLB(){ lbRoot.classList.add("hidden"); document.body.style.overflow = ""; }
-    function nextLB(step=1){ if(!projects.length) return; idx = (idx + step + projects.length) % projects.length; openLB(idx); }
-
-    projGrid.addEventListener("click", (e) => {
-      const btn = e.target.closest("button[data-idx]"); if (!btn) return; openLB(parseInt(btn.dataset.idx, 10));
-    });
-    lbClose.addEventListener("click", closeLB);
-    lbRoot.addEventListener("click", (e) => { if (e.target === lbRoot) closeLB(); });
-    lbPrev.addEventListener("click", () => nextLB(-1));
-    lbNext.addEventListener("click", () => nextLB(1));
-    addEventListener("keydown", (e) => {
-      if (lbRoot.classList.contains("hidden")) return;
-      if (e.key === "Escape") closeLB();
-      if (e.key === "ArrowRight") nextLB(1);
-      if (e.key === "ArrowLeft")  nextLB(-1);
-    });
-
-    // Menú móvil
-    const btnMenu = document.getElementById("btnMenu");
-    const mobileMenu = document.getElementById("mobileMenu");
-    if (btnMenu && mobileMenu) btnMenu.addEventListener("click", () => mobileMenu.classList.toggle("hidden"));
-  </script>
-
+<!-- =========================================================
+     SCRIPTS
+========================================================== -->
 <script>
-  (function(){
-    const track = document.getElementById('projTrack');
-    const prev  = document.getElementById('prevProj');
-    const next  = document.getElementById('nextProj');
-    const dotsC = document.getElementById('projDots');
-    if(!track){ return; }
+  // Año dinámico en footer
+  document.getElementById('yearSpan').textContent = new Date().getFullYear();
 
-    // Espera el arreglo 'projects' existente
-    if (typeof projects === 'undefined' || !projects || !Array.isArray(projects)) {
-      console.warn('No se encontró el arreglo "projects". El carrusel no puede renderizar.');
-      return;
-    }
-
-    // Render tarjetas
-    track.innerHTML = projects.map((p,i)=>`
-      <article class="proj-card" data-idx="${i}">
-        <img class="proj-media" loading="lazy" src="${p.img}" alt="${p.title}">
-        <div class="proj-grad"></div>
-        <div class="proj-info">
-          <div class="proj-title">${p.title}</div>
-          <div class="proj-sub">${p.desc ?? ""}</div>
-          <a class="proj-cta" href="${typeof whatsLink==='function'? whatsLink(): '#'}&text=${encodeURIComponent('Hola Alfa Urbana, quiero algo como: '+p.title)}" target="_blank" rel="noopener">Cotizar este estilo →</a>
-        </div>
-      </article>
-    `).join('');
-
-    // Dots
-    [...track.children].forEach((_,i)=>{
-      const d=document.createElement('span');
-      d.className='proj-dot'+(i===0?' active':'');
-      d.addEventListener('click',()=>scrollToIdx(i));
-      dotsC.appendChild(d);
+  // Menú móvil
+  const navToggle = document.getElementById('navToggle');
+  const navMobile = document.getElementById('navMobile');
+  if (navToggle && navMobile) {
+    navToggle.addEventListener('click', () => {
+      navMobile.classList.toggle('hidden');
     });
+  }
 
-    function cardWidth(){ return track.children[0].offsetWidth + 24; }
-    function activeByScroll(){
-      const idx = Math.round(track.scrollLeft / cardWidth());
-      [...dotsC.children].forEach((el,i)=>el.classList.toggle('active', i===idx));
-    }
-    function scrollToIdx(i){ track.scrollTo({left: i*cardWidth(), behavior:'smooth'}); }
+  // Lightbox sencillo
+  const lbRoot = document.getElementById('lightbox');
+  const lbImg  = document.getElementById('lbImg');
+  const lbClose = document.getElementById('lbClose');
 
-    track.addEventListener('scroll', ()=>requestAnimationFrame(activeByScroll));
-    prev && prev.addEventListener('click', ()=>track.scrollBy({left:-cardWidth(), behavior:'smooth'}));
-    next && next.addEventListener('click', ()=>track.scrollBy({left:+cardWidth(), behavior:'smooth'}));
+  function openLightbox(src, alt) {
+    if (!lbRoot || !lbImg) return;
+    lbImg.src = src;
+    lbImg.alt = alt || 'Vista ampliada';
+    lbRoot.classList.remove('hidden');
+    lbRoot.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+  }
 
-    // Drag desktop
-    let isDown=false, startX=0, startLeft=0;
-    track.addEventListener('pointerdown',(e)=>{isDown=true;track.setPointerCapture(e.pointerId);startX=e.clientX;startLeft=track.scrollLeft;});
-    track.addEventListener('pointermove',(e)=>{if(!isDown)return;track.scrollLeft=startLeft-(e.clientX-startX);});
-    track.addEventListener('pointerup',()=>{isDown=false;});
+  function closeLightbox() {
+    if (!lbRoot || !lbImg) return;
+    lbRoot.classList.add('hidden');
+    lbRoot.classList.remove('flex');
+    lbImg.src = '';
+    document.body.style.overflow = '';
+  }
 
-    // Desplazar rueda en horizontal
-    track.addEventListener('wheel',(e)=>{ if(Math.abs(e.deltaY)>Math.abs(e.deltaX)){ track.scrollBy({left:e.deltaY}); e.preventDefault(); }},{passive:false});
+  document.querySelectorAll('[data-lightbox]').forEach(img => {
+    img.addEventListener('click', () => openLightbox(img.src, img.alt));
+  });
 
-    // Lightbox (solo si existe en el DOM)
-    const lbRoot  = document.getElementById("lbRoot");
-    const lbImg   = document.getElementById("lbImg");
-    const lbCap   = document.getElementById("lbCap");
-    const lbClose = document.getElementById("lbClose");
-    const lbPrev  = document.getElementById("lbPrev");
-    const lbNext  = document.getElementById("lbNext");
-    let idx = 0;
-    if (lbRoot && lbImg && lbCap) {
-      function openLB(i){
-        idx = i;
-        const p = projects[idx]; if(!p) return;
-        lbImg.src = p.img; lbImg.alt = p.title; lbCap.textContent = [p.title, p.desc].filter(Boolean).join(" — ");
-        lbRoot.classList.remove("hidden"); document.body.style.overflow = "hidden";
-      }
-      function closeLB(){ lbRoot.classList.add("hidden"); document.body.style.overflow = ""; }
-      function nextLB(step=1){ idx = (idx + step + projects.length) % projects.length; openLB(idx); }
-
-      track.addEventListener("click", (e) => {
-        const card = e.target.closest(".proj-card"); if (!card) return;
-        openLB(parseInt(card.dataset.idx, 10));
-      });
-      lbClose && lbClose.addEventListener("click", closeLB);
-      lbRoot.addEventListener("click", (e) => { if (e.target === lbRoot) closeLB(); });
-      lbPrev && lbPrev.addEventListener("click", () => nextLB(-1));
-      lbNext && lbNext.addEventListener("click", () => nextLB(1));
-      addEventListener("keydown", (e) => {
-        if (lbRoot.classList.contains("hidden")) return;
-        if (e.key === "Escape") closeLB();
-        if (e.key === "ArrowRight") nextLB(1);
-        if (e.key === "ArrowLeft")  nextLB(-1);
-      });
-    }
-  })();
+  lbClose && lbClose.addEventListener('click', closeLightbox);
+  lbRoot && lbRoot.addEventListener('click', (e) => {
+    if (e.target === lbRoot) closeLightbox();
+  });
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLightbox();
+  });
 </script>
 
 </body>
